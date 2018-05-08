@@ -1,101 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(
-    React.createElement(
-      'div',
-      null,
-      React.createElement('h1', null, 'Hello')
-    ),
-    document.getElementById('root')
-  );
+// Stateless Components - Always have a single parameter (props)
+// Props are to components what parameters are to functions
 
-// This is JSX
-ReactDOM.render(
+// Traditional function
+function Hello(props) {
+  return (
     <div>
-      <h1>Hello</h1>
-    </div>,
-    document.getElementById('root'));
+      <h1>Hello, {props.name}!</h1>
+    </div>
+  );
+}
 
-// React.createElement Method
-ReactDOM.render(
-  React.createElement(
-        'ul',
-        null,
-        React.createElement( 'li', null, 'Apples' ),
-        React.createElement( 'li', null, 'Oranges' )
-      ),
-      document.getElementById('root'));
-    
-// Translating HTML To JSX
-ReactDOM.render(
-  <ul>
-    <li>Apples</li>
-    <li>Oranges</li>
-  </ul>,
+// ES2015 syntax 
+const Hello = (props) => {
+  return (
+    <div>
+      <h1>Hello, {props.name}!</h1>
+    </div>
+  );
+}
 
-  document.getElementById('root'));
-
-// The {} in JSX signify we are going to be inserting JavaScript which includes variables, JavaScript expressions, and calling functions. 
-
-const item1 = "Apples";
-const item2 = "Oranges";
-
-ReactDOM.render(
-  <ul>
-    <li>{item1}</li>
-    <li>{item2}</li>
-  </ul>,
-  document.getElementById('root'))
-  
-// Assigning Variables using JSX
-const groceryList = (
-  <ul>
-    <li>Apples</li>
-    <li>Oranges</li>
-  </ul>
+// ES2015 shorthand
+const Hello = (props) => (
+  <div>
+    <h1>Hello, {props.name}!</h1>
+  </div>
 );
 
+// Now we can render it directly or as a child, even multiple times.
 ReactDOM.render(
-  groceryList, 
+  <div>
+    <Hello name = "Tyler" />
+    <Hello name = "James" />
+    <Hello name = "Fuqua" />
+  </div>,
   document.getElementById('root'));
-
-// You can create functions that produce React elements
-function groceryList(item1, item2) { 
-  return (
-    <ul>
-      <li>{item1}</li>
-      <li>{item2}</li>
-    </ul>
-  );
-}
-
-ReactDOM.render(
-  groceryList("Apples", "Oranges"),
-  document.getElementById('root'));
-
-function GroceryList(item1, item2) { // this will not be compatible with below
-  return (
-    <ul>
-      <li>{item1}</li>
-      <li>{item2}</li>
-    </ul>
-  );
-}
-
-ReactDOM.render(
-  <GroceryList item1 = "Apples" item2 = "Oranges"></GroceryList>,
-  document.getElementById('root'));
-
-// This object is called props and corresponds to the 2nd parameter of the React.createElement function.
-function GroceryList(props) {
-  return (
-    <ul>
-      <li>{props.item1}</li>
-      <li>{props.item2}</li>
-    </ul>
-  );
-}
-
-ReactDOM.render(
-  <GroceryList item1 = "Apples" item2 = "Oranges" />, document.getElementById('root'));
