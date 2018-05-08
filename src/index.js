@@ -141,5 +141,76 @@ for (let i = 0; i < validUsers.length; i++) {
     console.log(userToFormattedString(validUsers[i]));
 }
 
-    document.getElementById('root'));
+// Convert the functions using ES2015
+
+// function DieBag(numberOfFaces) {
+//     this.values = [];
+
+//     for (var iterationCount = 0; iterationCount < 3; iterationCount++) {
+//         for (var faceCount = 0; faceCount < numberOfFaces; faceCount++) {
+//             this.values.push(faceCount + 1);
+//         }
+//     }
+// }
+
+// DieBag.prototype.drawValue = function() {
+//     return this.values.shift();
+// };
+
+// DieBag.prototype.shuffle = function() {
+//     for (var i = 0; i < this.values.length; i++) {
+//         var temp = this.values[i];
+//         var swapIndex = Math.floor(Math.random() * this.values.length);
+//         this.values[i] = this.values[swapIndex];
+//         this.values[swapIndex]= temp;
+//     }
+// };
+
+// DieBag.prototype.itemsRemaining = function() {
+//     return this.values.length;
+// }
+
+// var bag = new DieBag(10);
+// bag.shuffle();
+
+// while (bag.itemsRemaining()) {
+//     console.log(bag.drawValue());
+// }
+
+class DieBag {
+    constructor(numberOfFaces) {
+    this.values = [];
+
+    for (var iterationCount = 0; iterationCount < 3; iterationCount++) {
+        for (var faceCount = 0; faceCount < numberOfFaces; faceCount++) {
+            this.values.push(faceCount + 1);
+        }
+    }
+}
+
+    drawValue() {
+    return this.values.shift();
+};
+
+    shuffle() {
+    for (var i = 0; i < this.values.length; i++) {
+        var temp = this.values[i];
+        var swapIndex = Math.floor(Math.random() * this.values.length);
+        this.values[i] = this.values[swapIndex];
+        this.values[swapIndex]= temp;
+    }
+};
+
+    itemsRemaining() {
+    return this.values.length;
+}
+
+const bag = new DieBag(10);
+bag.shuffle();
+
+while (bag.itemsRemaining()) {
+    console.log(bag.drawValue());
+}
+
+
     
