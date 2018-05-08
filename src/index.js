@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom';
 //     document.getElementById('root')
 //   );
 
+// This is JSX
 ReactDOM.render(
     <div>
       <h1>Hello</h1>
